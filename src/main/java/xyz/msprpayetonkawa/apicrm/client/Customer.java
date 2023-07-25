@@ -22,7 +22,6 @@ public class Customer {
     private Long id;
     private String uid;
     private String name;
-    private List<Order> listOrder;
 
     // constructeurs, getters, setters (vous pouvez générer ces méthodes automatiquement)
 }
