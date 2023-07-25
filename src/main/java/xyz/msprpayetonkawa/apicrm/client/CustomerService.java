@@ -23,7 +23,6 @@ import lombok.Data;
         }
 
         public Customer saveCustomer(Customer customer) {
-            customer.setUid(String.valueOf(UUID.randomUUID()));
             return customerRepository.save(customer);
         }
 

@@ -12,9 +12,9 @@ import java.util.Optional;
 @Repository
 public interface CustomerRepository extends Neo4jRepository<Customer, Long> {
 
-    Optional<Customer> findByUid(String id);
+   /* Optional<Customer> findByUid(String id);
     @Query("CREATE (n:Product {uid: $uid,name: $name, description: $description, stock: $stock, price: $price} ) \n" +
             "RETURN n")
     Product createProduct(@Param("uid") String uid, @Param("name") String name, @Param("description") String description, @Param("stock") Integer stock, @Param("price") Float price);
-
+*/
 }
