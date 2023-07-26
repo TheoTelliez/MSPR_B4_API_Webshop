@@ -1,14 +1,16 @@
-package xyz.msprpayetonkawa.apicrm.Order;
+package xyz.msprpayetonkawa.apicrm.order;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import xyz.msprpayetonkawa.apicrm.client.Customer;
 import xyz.msprpayetonkawa.apicrm.product.Product;
 
 
 @RestController
 @RequestMapping("/api/order")
+
+@Tag(name = "Order", description = "Description Order")
+
 public class OrderController {
     @Autowired
     private OrderService orderService;

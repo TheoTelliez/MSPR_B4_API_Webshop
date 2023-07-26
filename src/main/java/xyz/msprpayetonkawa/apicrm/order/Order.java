@@ -1,13 +1,11 @@
 
-package xyz.msprpayetonkawa.apicrm.Order;
+package xyz.msprpayetonkawa.apicrm.order;
 import lombok.*;
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
 import xyz.msprpayetonkawa.apicrm.client.Customer;
-import xyz.msprpayetonkawa.apicrm.product.Product;
 
 import java.util.Date;
-import java.util.List;
 
 @Getter
 @Setter
@@ -21,7 +19,6 @@ public class Order {
     private Long id;
     private String uid;
     private Date dateCreated;
-    //private List<Product> productList;
     private Customer customer;
 
 }

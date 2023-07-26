@@ -1,29 +1,15 @@
 package xyz.msprpayetonkawa.apicrm.client;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-/*
-@RestController
-@RequestMapping("/customer")
-public class ClientController {
-    private final ClientRepository clientRepository;
-    public ClientController(ClientRepository clientRepository) {
-        this.clientRepository = clientRepository;
-
-        @PutMapping
-        Mono<Clients> createOrUpdateMovie(@RequestBody Clients newClient) {
-            return clientRepository.save(newClient);
-        }
-    }
-    //method implementations with walkthroughs below
-}
-
-
-*/
 @RestController
 @RequestMapping("/api/customer")
+
+@Tag(name = "Customer", description = "Description Customer")
+
 public class CustomerController {
     @Autowired
     private CustomerService customerService;

@@ -1,4 +1,4 @@
-package xyz.msprpayetonkawa.apicrm.Order;
+package xyz.msprpayetonkawa.apicrm.order;
 
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 import org.springframework.data.neo4j.repository.query.Query;

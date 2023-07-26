@@ -1,13 +1,11 @@
-package xyz.msprpayetonkawa.apicrm.Order;
+package xyz.msprpayetonkawa.apicrm.order;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import xyz.msprpayetonkawa.apicrm.client.Customer;
 import xyz.msprpayetonkawa.apicrm.product.Product;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @Data

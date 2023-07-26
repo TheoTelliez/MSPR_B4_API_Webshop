@@ -22,6 +22,6 @@ public class Customer {
     private String email;
     private String company;
 
-    private boolean prospects;
+    private boolean prospect;
     // constructeurs, getters, setters (vous pouvez générer ces méthodes automatiquement)
 }
