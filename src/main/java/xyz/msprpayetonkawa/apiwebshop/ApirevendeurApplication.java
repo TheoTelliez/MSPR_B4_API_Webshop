@@ -10,11 +10,11 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 
 
-public class ApicrmApplication {
+public class ApirevendeurApplication {
 
 	public static void main(String[] args) {
 
-		SpringApplication.run(ApicrmApplication.class, args);
+		SpringApplication.run(ApirevendeurApplication.class, args);
 	}
 
 	@Bean
