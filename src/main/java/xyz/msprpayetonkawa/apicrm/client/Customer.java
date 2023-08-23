@@ -1,27 +1,26 @@
 package xyz.msprpayetonkawa.apicrm.client;
 
+import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.neo4j.core.schema.GeneratedValue;
-import org.springframework.data.neo4j.core.schema.Id;
-import org.springframework.data.neo4j.core.schema.Node;
 
-@Node("Customer")
+@Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
+@Table(name="customer")
 
 public class Customer {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private Long id;
     private String uid;
     private String nom;
     private String prenom;
     private String email;
     private String company;
-
     private boolean prospect;
-    // constructeurs, getters, setters (vous pouvez générer ces méthodes automatiquement)
+
 }

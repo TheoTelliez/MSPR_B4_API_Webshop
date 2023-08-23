@@ -1,8 +1,7 @@
 package xyz.msprpayetonkawa.apicrm.product;
 
+import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.neo4j.core.schema.Id;
-import org.springframework.data.neo4j.core.schema.GeneratedValue;
 
 @Getter
 @Setter
@@ -10,6 +9,9 @@ import org.springframework.data.neo4j.core.schema.GeneratedValue;
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
+@Entity
+@Table(name="product")
+
 public class Product {
     @Id
     @GeneratedValue

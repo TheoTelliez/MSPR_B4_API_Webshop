@@ -19,11 +19,6 @@ public class CustomerController {
        return customerService.getCustomers();
     }
 
-    @PostMapping
-    public Customer addClient(@RequestBody Customer clients) {
-        return customerService.saveCustomer(clients);
-    }
-
     @GetMapping("/{id}")
     public ResponseEntity<Customer> getProductById(@PathVariable Long id) {
         return customerService.getCustomerById(id)

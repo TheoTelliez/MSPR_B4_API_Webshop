@@ -1,15 +1,10 @@
 package xyz.msprpayetonkawa.apicrm.client;
 
-import org.springframework.data.neo4j.repository.Neo4jRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CustomerRepository extends Neo4jRepository<Customer, Long> {
+public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
-   /* Optional<Customer> findByUid(String id);
-    @Query("CREATE (n:Product {uid: $uid,name: $name, description: $description, stock: $stock, price: $price} ) \n" +
-            "RETURN n")
-    Product createProduct(@Param("uid") String uid, @Param("name") String name, @Param("description") String description, @Param("stock") Integer stock, @Param("price") Float price);
-*/
-
+    Customer findByUid(String uid);
 }
