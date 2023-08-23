@@ -1,4 +1,4 @@
-package xyz.msprpayetonkawa.apicrm.order;
+package xyz.msprpayetonkawa.apiwebshop.order;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;

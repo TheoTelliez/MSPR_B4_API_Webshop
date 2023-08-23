@@ -1,4 +1,4 @@
-package xyz.msprpayetonkawa.apicrm.product;
+package xyz.msprpayetonkawa.apiwebshop.product;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

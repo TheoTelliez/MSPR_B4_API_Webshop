@@ -1,4 +1,4 @@
-package xyz.msprpayetonkawa.apicrm.client;
+package xyz.msprpayetonkawa.apiwebshop.client;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;

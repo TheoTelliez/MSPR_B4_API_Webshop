@@ -1,10 +1,10 @@
-package xyz.msprpayetonkawa.apicrm.relations;
+package xyz.msprpayetonkawa.apiwebshop.relations;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
-import xyz.msprpayetonkawa.apicrm.order.Order;
-import xyz.msprpayetonkawa.apicrm.product.Product;
+import xyz.msprpayetonkawa.apiwebshop.order.Order;
+import xyz.msprpayetonkawa.apiwebshop.product.Product;
 
 @Entity
 @Getter

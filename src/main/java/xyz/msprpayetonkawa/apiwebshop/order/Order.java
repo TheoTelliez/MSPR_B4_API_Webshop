@@ -1,10 +1,10 @@
-package xyz.msprpayetonkawa.apicrm.order;
+package xyz.msprpayetonkawa.apiwebshop.order;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
-import xyz.msprpayetonkawa.apicrm.client.Customer;
+import xyz.msprpayetonkawa.apiwebshop.client.Customer;
 import jakarta.persistence.*;
-import xyz.msprpayetonkawa.apicrm.relations.OrderProduct;
+import xyz.msprpayetonkawa.apiwebshop.relations.OrderProduct;
 
 import java.util.Date;
 import java.util.List;

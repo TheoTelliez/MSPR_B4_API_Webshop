@@ -1,4 +1,4 @@
-package xyz.msprpayetonkawa.apicrm.product;
+package xyz.msprpayetonkawa.apiwebshop.product;
 
 import jakarta.persistence.*;
 import lombok.*;

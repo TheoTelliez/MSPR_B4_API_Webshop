@@ -1,4 +1,4 @@
-package xyz.msprpayetonkawa.apicrm.product;
+package xyz.msprpayetonkawa.apiwebshop.product;
 
 import java.util.List;
 import java.util.Optional;
