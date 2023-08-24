@@ -15,11 +15,7 @@ class ApiwebshopApplicationTests {
 	private ApplicationContext applicationContext;
 
 	@Test
-	void contextLoads() {
-	}
-
-	@Test
-	public void openAPIBeanIsPresent() {
+	void openAPIBeanIsPresent() {
 		OpenAPI openAPI = applicationContext.getBean(OpenAPI.class);
 		assertThat(openAPI).isNotNull();
 		assertThat(openAPI.getInfo().getTitle()).isEqualTo("API CRM");

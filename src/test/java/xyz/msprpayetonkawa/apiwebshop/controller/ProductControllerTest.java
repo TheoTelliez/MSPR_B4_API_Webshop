@@ -1,56 +1,45 @@
 package xyz.msprpayetonkawa.apiwebshop.controller;
 
-import org.junit.Before;
+import io.restassured.response.Response;
 import org.junit.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import xyz.msprpayetonkawa.apiwebshop.product.Product;
 import xyz.msprpayetonkawa.apiwebshop.product.ProductController;
 import xyz.msprpayetonkawa.apiwebshop.product.ProductService;
+import xyz.msprpayetonkawa.apiwebshop.tools.SpringBeanMockUtil;
 
 import java.util.List;
 
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static io.restassured.RestAssured.given;
+import static org.mockito.Mockito.doReturn;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@DirtiesContext
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class ProductControllerTest {
 
     @Autowired
-    private MockMvc mockMvc;
-
-    @InjectMocks
     ProductController productController;
 
-    @Mock
-    ProductService productService;
+    @Test
+    public void testGetProducts() {
+        ProductService productServiceMock = SpringBeanMockUtil.mockFieldOnBean(productController, ProductService.class);
+        doReturn(List.of(new Product())).when(productServiceMock).getProducts();
+        Response response = given().when().get("/api/product");
 
-    @Before
-    public void setUp() {
-        MockitoAnnotations.initMocks(this);
+        response.then().statusCode(200);
     }
 
     @Test
-    public void testGetProducts() throws Exception {
-        when(productService.getProducts()).thenReturn(List.of(new Product()));
-
-        mockMvc.perform(get("/api/product"))
-                .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+    public void testGetProductbyUid() {
+        ProductService productServiceMock = SpringBeanMockUtil.mockFieldOnBean(productController, ProductService.class);
+        doReturn(new Product()).when(productServiceMock).getProduct("uid");
+        Response response = given().when().pathParams("uid", "uid").get("/api/product/{uid}");
+        response.then().statusCode(200);
     }
 
-    @Test
-    public void testGetProductbyUid() throws Exception {
-        String mockUid = "12345";
-        Product mockProduct = new Product();
-        when(productService.getProduct(mockUid)).thenReturn(mockProduct);
-
-        mockMvc.perform(get("/api/product" + mockUid))
-                .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON));
-    }
 }
