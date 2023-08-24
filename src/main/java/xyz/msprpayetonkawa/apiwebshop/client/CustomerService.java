@@ -1,10 +1,12 @@
 package xyz.msprpayetonkawa.apiwebshop.client;
 
-import java.util.Optional;
-
+import jakarta.transaction.Transactional;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import lombok.Data;
+
+import java.util.List;
+import java.util.UUID;
 
 @Data
 @Service

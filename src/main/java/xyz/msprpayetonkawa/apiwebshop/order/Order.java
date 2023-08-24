@@ -1,9 +1,9 @@
 package xyz.msprpayetonkawa.apiwebshop.order;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
 import lombok.*;
 import xyz.msprpayetonkawa.apiwebshop.client.Customer;
-import jakarta.persistence.*;
 import xyz.msprpayetonkawa.apiwebshop.relations.OrderProduct;
 
 import java.util.Date;

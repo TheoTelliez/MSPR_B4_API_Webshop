@@ -1,8 +1,8 @@
 package xyz.msprpayetonkawa.apiwebshop;
 
-import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.ExternalDocumentation;
 import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Info;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -10,11 +10,11 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 
 
-public class ApirevendeurApplication {
+public class ApiwebshopApplication {
 
 	public static void main(String[] args) {
 
-		SpringApplication.run(ApirevendeurApplication.class, args);
+		SpringApplication.run(ApiwebshopApplication.class, args);
 	}
 
 	@Bean
