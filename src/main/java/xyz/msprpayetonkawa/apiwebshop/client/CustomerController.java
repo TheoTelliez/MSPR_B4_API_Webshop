@@ -2,8 +2,11 @@ package xyz.msprpayetonkawa.apiwebshop.client;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/customer")
@@ -15,15 +18,21 @@ public class CustomerController {
     private CustomerService customerService;
 
     @GetMapping
-    public Iterable<Customer> getAllProducts() {
-       return customerService.getCustomers();
+    public ResponseEntity<List<Customer>> getAllCustomer() {
+        List<Customer> toReturn = customerService.getCustomers();
+        return new ResponseEntity<>(toReturn, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Customer> getProductById(@PathVariable Long id) {
-        return customerService.getCustomerById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    @PostMapping
+    public ResponseEntity<Customer> addCustomer(@RequestBody Customer customer) {
+        Customer toReturn = customerService.saveCustomer(customer);
+        return new ResponseEntity<>(toReturn, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/{uid}")
+    public ResponseEntity<Customer> getCustomerById(@PathVariable("uid") String uid) {
+        Customer toReturn = customerService.getCustomerById(uid);
+        return new ResponseEntity<>(toReturn, HttpStatus.OK);
     }
 
 }

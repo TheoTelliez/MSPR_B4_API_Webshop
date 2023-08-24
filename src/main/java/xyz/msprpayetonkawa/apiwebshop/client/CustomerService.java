@@ -15,12 +15,18 @@ public class CustomerService {
     @Autowired
     private CustomerRepository customerRepository;
 
-    public Optional<Customer> getCustomerById(final Long id) {
-        return customerRepository.findById(id);
+    public Customer getCustomerById(final String uid) {
+        return customerRepository.findByUid(uid);
     }
 
-    public Iterable<Customer> getCustomers() {
+    public List<Customer> getCustomers() {
         return customerRepository.findAll();
+    }
+
+    @Transactional(rollbackOn = Exception.class)
+    public Customer saveCustomer(Customer customer) {
+        customer.setUid(String.valueOf(UUID.randomUUID()));
+        return customerRepository.save(customer);
     }
 
 }
