@@ -3,12 +3,19 @@ package xyz.msprpayetonkawa.apiwebshop.product;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import xyz.msprpayetonkawa.apiwebshop.retailer.Retailer;
+import xyz.msprpayetonkawa.apiwebshop.retailer.RetailerService;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Data
 @Service
 public class ProductService {
+
+    @Autowired
+    private RetailerService retailerService;
 
     @Autowired
     private ProductRepository productRepository;
@@ -19,6 +26,14 @@ public class ProductService {
 
     public List<Product> getProducts() {
         return productRepository.findAll();
+    }
+
+    public List<Product> getProductsByRetailer(String retailedUid) {
+        Retailer retailer = retailerService.getRetailerByUid(retailedUid);
+        if (retailer == null) {
+            return Collections.emptyList();
+        }
+        return productRepository.findByRetailer(retailer);
     }
 
 }

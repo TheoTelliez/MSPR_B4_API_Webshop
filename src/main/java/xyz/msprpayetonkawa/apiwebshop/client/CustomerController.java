@@ -23,14 +23,8 @@ public class CustomerController {
         return new ResponseEntity<>(toReturn, HttpStatus.OK);
     }
 
-    @PostMapping
-    public ResponseEntity<Customer> addCustomer(@RequestBody Customer customer) {
-        Customer toReturn = customerService.saveCustomer(customer);
-        return new ResponseEntity<>(toReturn, HttpStatus.CREATED);
-    }
-
     @GetMapping("/{uid}")
-    public ResponseEntity<Customer> getCustomerById(@PathVariable("uid") String uid) {
+    public ResponseEntity<Customer> getCustomerByUid(@PathVariable("uid") String uid) {
         Customer toReturn = customerService.getCustomerById(uid);
         return new ResponseEntity<>(toReturn, HttpStatus.OK);
     }

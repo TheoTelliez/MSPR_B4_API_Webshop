@@ -5,8 +5,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import xyz.msprpayetonkawa.apiwebshop.WebSecurityConfig;
 import xyz.msprpayetonkawa.apiwebshop.product.Product;
 import xyz.msprpayetonkawa.apiwebshop.product.ProductController;
 import xyz.msprpayetonkawa.apiwebshop.product.ProductService;
@@ -20,6 +22,7 @@ import static org.mockito.Mockito.doReturn;
 @RunWith(SpringJUnit4ClassRunner.class)
 @DirtiesContext
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+@Import(WebSecurityConfig.class)
 public class ProductControllerTest {
 
     @Autowired

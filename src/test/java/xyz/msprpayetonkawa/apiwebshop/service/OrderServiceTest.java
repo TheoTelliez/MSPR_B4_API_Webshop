@@ -15,6 +15,7 @@ import xyz.msprpayetonkawa.apiwebshop.order.OrderRepository;
 import xyz.msprpayetonkawa.apiwebshop.order.OrderService;
 import xyz.msprpayetonkawa.apiwebshop.relations.OrderProduct;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -36,14 +37,14 @@ public class OrderServiceTest {
         Order order1 = new Order();
         order1.setId(1L);
         order1.setUid("order-uid-1");
-        order1.setDateCreated(new Date());
+        order1.setDateCreated(LocalDateTime.now());
         order1.setProductList(Arrays.asList(new OrderProduct()));
         order1.setCustomer(new Customer());
 
         Order order2 = new Order();
         order2.setId(2L);
         order2.setUid("order-uid-2");
-        order2.setDateCreated(new Date());
+        order2.setDateCreated(LocalDateTime.now());
         order2.setProductList(Arrays.asList(new OrderProduct()));
         order2.setCustomer(new Customer());
 

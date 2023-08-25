@@ -9,8 +9,10 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import xyz.msprpayetonkawa.apiwebshop.WebSecurityConfig;
 import xyz.msprpayetonkawa.apiwebshop.order.Order;
 import xyz.msprpayetonkawa.apiwebshop.order.OrderController;
 import xyz.msprpayetonkawa.apiwebshop.order.OrderService;
@@ -24,7 +26,7 @@ import static org.mockito.Mockito.when;
 @RunWith(SpringJUnit4ClassRunner.class)
 @DirtiesContext
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-
+@Import(WebSecurityConfig.class)
 public class OrderControllerTest {
 
     @InjectMocks

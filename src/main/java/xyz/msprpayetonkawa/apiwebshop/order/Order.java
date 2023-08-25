@@ -6,6 +6,7 @@ import lombok.*;
 import xyz.msprpayetonkawa.apiwebshop.client.Customer;
 import xyz.msprpayetonkawa.apiwebshop.relations.OrderProduct;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class Order {
     @GeneratedValue
     private Long id;
     private String uid;
-    private Date dateCreated;
+    private LocalDateTime dateCreated;
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnoreProperties("order")
     private List<OrderProduct> productList;

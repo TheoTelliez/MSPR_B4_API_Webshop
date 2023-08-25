@@ -1,10 +1,10 @@
 package xyz.msprpayetonkawa.apiwebshop.product;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
 import lombok.*;
+import xyz.msprpayetonkawa.apiwebshop.retailer.Retailer;
 
 @Getter
 @Setter
@@ -18,11 +18,17 @@ import lombok.*;
 public class Product {
     @Id
     @GeneratedValue
+    @JsonIgnore
     private Long id;
     private String uid;
     private String name;
     private String description;
     private Float price;
+    @ManyToOne
+    @JsonIgnoreProperties("products")
+    private Retailer retailer;
     private Integer stock;
+    private String image;
+    private String couleur;
 }
 
