@@ -79,4 +79,16 @@ public class ProductServiceTest {
         Product result = productService.getProduct(uid);
         assertNull(result);
     }
+
+    @Test
+    public void testFindProductsByRetailerUid(){
+        String uid = "retailer-uid-key";
+
+        Mockito.when(productRepository.findProductsByRetailerUid(uid)).thenReturn(products);
+
+        List<Product> result = productService.getProductsByRetailer(uid);
+
+        assertEquals(products,result);
+
+    }
 }

@@ -6,13 +6,11 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import xyz.msprpayetonkawa.apiwebshop.security.payload.response.UserInfoResponse;
 
 import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @DirtiesContext

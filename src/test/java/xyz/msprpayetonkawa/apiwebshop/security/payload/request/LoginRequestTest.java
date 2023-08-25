@@ -6,10 +6,8 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import xyz.msprpayetonkawa.apiwebshop.security.payload.request.LoginRequest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @DirtiesContext

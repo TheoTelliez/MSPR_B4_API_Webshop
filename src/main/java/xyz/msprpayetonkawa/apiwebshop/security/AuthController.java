@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import xyz.msprpayetonkawa.apiwebshop.client.Customer;
 import xyz.msprpayetonkawa.apiwebshop.client.CustomerRepository;
 import xyz.msprpayetonkawa.apiwebshop.qrcode.GenerateQRCode;
-import xyz.msprpayetonkawa.apiwebshop.retailer.Retailer;
 import xyz.msprpayetonkawa.apiwebshop.security.jwt.JwtUtils;
 import xyz.msprpayetonkawa.apiwebshop.security.payload.request.LoginRequest;
 import xyz.msprpayetonkawa.apiwebshop.security.payload.request.SignupRequest;

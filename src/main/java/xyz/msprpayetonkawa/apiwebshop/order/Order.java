@@ -7,7 +7,6 @@ import xyz.msprpayetonkawa.apiwebshop.client.Customer;
 import xyz.msprpayetonkawa.apiwebshop.relations.OrderProduct;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
 @Getter

@@ -3,7 +3,6 @@ package xyz.msprpayetonkawa.apiwebshop.product;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,9 +35,10 @@ public class ProductController {
         return productService.getProduct(uid);
     }
 
-//    @GetMapping("/byRetrailer/{retailerUid}")
-//    public ResponseEntity<List<Product>> getProductsByRetailer(@PathVariable("retailerUid") String retailerUid) {
-//
-//    }
+    @GetMapping("/retailer/{uid}")
+    public ResponseEntity<List<Product>> getProductsByRetailerUid(@PathVariable("uid") String uid) {
+        List<Product> toReturn = productService.getProductsByRetailer(uid);
+        return ResponseEntity.ok(toReturn);
+    }
 
 }

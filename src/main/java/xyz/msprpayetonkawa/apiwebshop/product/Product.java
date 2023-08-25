@@ -30,5 +30,12 @@ public class Product {
     private Integer stock;
     private String image;
     private String couleur;
+
+    public Product(String name, String description, Float price, Integer stock) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.stock = stock;
+    }
 }
 

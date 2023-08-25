@@ -34,7 +34,6 @@ public class CustomerControllerTest {
     @Mock
     CustomerService customerService;
 
-
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);

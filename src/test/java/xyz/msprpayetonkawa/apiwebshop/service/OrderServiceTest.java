@@ -10,17 +10,22 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 import xyz.msprpayetonkawa.apiwebshop.client.Customer;
+import xyz.msprpayetonkawa.apiwebshop.client.CustomerRepository;
 import xyz.msprpayetonkawa.apiwebshop.order.Order;
 import xyz.msprpayetonkawa.apiwebshop.order.OrderRepository;
 import xyz.msprpayetonkawa.apiwebshop.order.OrderService;
+import xyz.msprpayetonkawa.apiwebshop.product.Product;
+import xyz.msprpayetonkawa.apiwebshop.product.ProductRepository;
 import xyz.msprpayetonkawa.apiwebshop.relations.OrderProduct;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -28,6 +33,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class OrderServiceTest {
     @Mock
     private OrderRepository orderRepository;
+
+    @Mock
+    private CustomerRepository customerRepository;
+
+    @Mock
+    private ProductRepository productRepository;
 
     @InjectMocks
     private OrderService orderService;
@@ -57,6 +68,40 @@ public class OrderServiceTest {
     public void testGetOrder(){
         List<Order> result = orderService.getOrder();
         assertEquals(2, result.size());
+    }
+
+    @Test
+    public void testSaveOrder() {
+        Order orderToAdd = new Order();
+        orderToAdd.setId(3L);
+        orderToAdd.setUid("added-order-uid-key");
+        orderToAdd.setDateCreated(LocalDateTime.now());
+
+        Product sampleProduct = new Product();
+        sampleProduct.setUid("sample-product-uid");
+
+        OrderProduct sampleOrderProduct = new OrderProduct();
+        sampleOrderProduct.setProduct(sampleProduct);
+
+        orderToAdd.setProductList(Arrays.asList(sampleOrderProduct));
+        orderToAdd.setCustomer(new Customer(2L,"other-uid-key","Other Last Name","Other First Name","otherfirst.otherlast@email.com","Other Company",false));
+
+        Mockito.when(orderRepository.save(any(Order.class))).thenReturn(orderToAdd);
+        Mockito.when(customerRepository.findByUid(anyString())).thenReturn(orderToAdd.getCustomer());
+        Mockito.when(productRepository.findByUid(sampleProduct.getUid())).thenReturn(sampleProduct);
+
+
+        Order result = orderService.saveOrders(orderToAdd);
+
+        assertNotNull(result);
+        assertEquals(orderToAdd.getUid(), result.getUid());
+        assertEquals(orderToAdd.getDateCreated(), result.getDateCreated());
+        assertEquals(orderToAdd.getCustomer(), result.getCustomer());
+        assertEquals(orderToAdd.getProductList().size(), result.getProductList().size());
+
+        assertNotNull(result.getUid());
+
+        assertNotNull(result.getDateCreated());
     }
 
 }

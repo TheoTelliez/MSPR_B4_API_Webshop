@@ -10,7 +10,7 @@ import xyz.msprpayetonkawa.apiwebshop.order.Order;
 import xyz.msprpayetonkawa.apiwebshop.product.Product;
 import xyz.msprpayetonkawa.apiwebshop.relations.OrderProduct;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @DirtiesContext

@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import xyz.msprpayetonkawa.apiwebshop.client.Customer;
 import xyz.msprpayetonkawa.apiwebshop.client.CustomerRepository;
-import xyz.msprpayetonkawa.apiwebshop.retailer.Retailer;
-import xyz.msprpayetonkawa.apiwebshop.retailer.RetailerRepository;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {

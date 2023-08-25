@@ -6,7 +6,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import xyz.msprpayetonkawa.apiwebshop.client.Customer;
-import xyz.msprpayetonkawa.apiwebshop.retailer.Retailer;
 
 import java.io.Serial;
 import java.util.Collection;
