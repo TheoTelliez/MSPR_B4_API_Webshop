@@ -28,20 +28,13 @@ import static org.mockito.Mockito.doReturn;
 @ActiveProfiles("test")
 public class OrderControllerTest {
 
-    @InjectMocks
+    @Autowired
     OrderController orderController;
-
-    @Mock
-    OrderService orderService;
-
-    @Before
-    public void setUp() {
-        MockitoAnnotations.initMocks(this);
-    }
 
     @Test
     public void testGetOrderByCustomer() {
-        doReturn(List.of(new Order())).when(orderService).getOrder();
+        OrderService orderServiceMock = SpringBeanMockUtil.mockFieldOnBean(orderController, OrderService.class);
+        doReturn(List.of(new Order())).when(orderServiceMock).getOrder();
 
         Response response = given().when().get("/api/order");
         response.then().statusCode(200);
