@@ -71,8 +71,8 @@ public class GenerateQRCodeTest {
         // Here you can add assertions to check the actual behavior of the method
         // For example, you can check if the file was created and deleted
         // You might need to adjust these assertions based on your implementation and requirements.
-        assertTrue(new File("qrcodes/testUsername.png").exists());
-        Files.delete(Path.of("qrcodes/" + username + ".png"));
+        assertTrue(new File("/qrcodes/testUsername.png").exists());
+        Files.delete(Path.of("/qrcodes/" + username + ".png"));
     }
 
     @Test
@@ -89,8 +89,8 @@ public class GenerateQRCodeTest {
         // Here you can add assertions to check the actual behavior of the method
         // For example, you can check if the file was created and deleted
         // You might need to adjust these assertions based on your implementation and requirements.
-        assertTrue(new File("qrcodes/"+username+".png").exists());
-        Files.delete(Path.of("qrcodes/" + username + ".png"));
+        assertTrue(new File("/qrcodes/"+username+".png").exists());
+        Files.delete(Path.of("/qrcodes/" + username + ".png"));
     }
 
 
