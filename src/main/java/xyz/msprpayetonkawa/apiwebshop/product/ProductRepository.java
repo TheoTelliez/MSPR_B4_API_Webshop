@@ -2,7 +2,6 @@ package xyz.msprpayetonkawa.apiwebshop.product;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import xyz.msprpayetonkawa.apiwebshop.retailer.Retailer;
 
 import java.util.List;
 

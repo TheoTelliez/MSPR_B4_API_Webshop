@@ -39,7 +39,7 @@ public class JwtUtils {
                 .parseClaimsJws(token).getBody().getSubject();
     }
 
-    Key key() {
+    public Key key() {
         StringBuilder reverse = new StringBuilder(jwtSecret).reverse();
         String jwtKey = jwtSecret + reverse + jwtSecret + reverse;
         return Keys.hmacShaKeyFor(Decoders.BASE64.decode(jwtKey));

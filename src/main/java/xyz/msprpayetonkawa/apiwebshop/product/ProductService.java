@@ -3,10 +3,8 @@ package xyz.msprpayetonkawa.apiwebshop.product;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import xyz.msprpayetonkawa.apiwebshop.retailer.Retailer;
 import xyz.msprpayetonkawa.apiwebshop.retailer.RetailerService;
 
-import java.util.Collections;
 import java.util.List;
 
 @Data

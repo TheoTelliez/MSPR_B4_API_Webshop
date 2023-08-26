@@ -1,4 +1,4 @@
-package xyz.msprpayetonkawa.apiwebshop.security.jwt;
+package xyz.msprpayetonkawa.apiwebshop.entity;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -10,10 +10,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import xyz.msprpayetonkawa.apiwebshop.security.jwt.JwtUtils;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
-import java.util.Base64;
 import java.util.Date;
 import java.util.HashMap;
 

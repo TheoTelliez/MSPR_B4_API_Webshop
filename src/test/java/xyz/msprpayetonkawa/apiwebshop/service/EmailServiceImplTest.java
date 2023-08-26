@@ -1,4 +1,4 @@
-package xyz.msprpayetonkawa.apiwebshop.qrcode;
+package xyz.msprpayetonkawa.apiwebshop.service;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -6,18 +6,17 @@ import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import xyz.msprpayetonkawa.apiwebshop.qrcode.EmailServiceImpl;
 
 import javax.mail.Message;
 import javax.mail.Session;
 import javax.mail.internet.MimeMessage;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 

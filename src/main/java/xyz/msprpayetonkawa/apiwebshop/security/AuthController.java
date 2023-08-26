@@ -19,8 +19,8 @@ import xyz.msprpayetonkawa.apiwebshop.qrcode.GenerateQRCode;
 import xyz.msprpayetonkawa.apiwebshop.security.jwt.JwtUtils;
 import xyz.msprpayetonkawa.apiwebshop.security.payload.request.LoginRequest;
 import xyz.msprpayetonkawa.apiwebshop.security.payload.request.SignupRequest;
+import xyz.msprpayetonkawa.apiwebshop.security.payload.response.AuthToken;
 import xyz.msprpayetonkawa.apiwebshop.security.payload.response.MessageResponse;
-import xyz.msprpayetonkawa.apiwebshop.security.payload.response.Token;
 import xyz.msprpayetonkawa.apiwebshop.security.services.UserDetailsImpl;
 
 import java.io.IOException;
@@ -61,7 +61,7 @@ public class AuthController {
 
         generateQRCode.createQRCode(jwtToken, userDetails.getUsername(), userDetails.getEmail());
 
-        return ResponseEntity.ok(new Token(jwtToken));
+        return ResponseEntity.ok(new AuthToken(jwtToken));
     }
 
     @PostMapping("/signup")
