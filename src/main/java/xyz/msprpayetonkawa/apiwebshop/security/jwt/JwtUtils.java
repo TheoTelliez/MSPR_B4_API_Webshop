@@ -22,10 +22,6 @@ public class JwtUtils {
     @Value("${token.secret}")
     private String jwtSecret;
 
-    private int jwtExpirationMs;
-
-    private String jwtCookie;
-
     public String getJWTFromRequest(HttpServletRequest request) {
         String bearerToken = request.getHeader("Authorization");
         if (bearerToken != null && bearerToken.startsWith("Bearer ")) {
