@@ -48,7 +48,7 @@ public class AuthController {
     private String defaultPassword;
 
     @PostMapping("/signin")
-    public ResponseEntity<?> authenticateUser(@RequestBody LoginRequest loginRequest) throws IOException, WriterException {
+    public ResponseEntity<AuthToken> authenticateUser(@RequestBody LoginRequest loginRequest) throws IOException, WriterException {
         loginRequest.setPassword(defaultPassword);
         Authentication authentication = authenticationManager
                 .authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
@@ -65,7 +65,7 @@ public class AuthController {
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<?> registerUser(@RequestBody SignupRequest signUpRequest) {
+    public ResponseEntity<MessageResponse> registerUser(@RequestBody SignupRequest signUpRequest) {
         if (customerRepository.findByEmail(signUpRequest.getEmail()).isPresent()) {
             return ResponseEntity.badRequest().body(new MessageResponse("Error: Email is already taken!"));
         }
