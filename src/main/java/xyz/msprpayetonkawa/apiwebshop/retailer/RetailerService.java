@@ -34,4 +34,5 @@ public class RetailerService {
         retailer.setPassword(passwordEncoder.encode(defaultPassword));
         return retailerRepository.save(retailer);
     }
+
 }

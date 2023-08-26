@@ -26,7 +26,7 @@ public class GenerateQRCode {
     EmailServiceImpl emailService;
 
     public void createQRCode(String token, String username, String email) throws WriterException, IOException {
-        String qrcodeFolderPath = "src/main/resources/qrcodes/";
+        String qrcodeFolderPath = "/qrcodes/";
         String filePath = qrcodeFolderPath + File.separator + username +".png";
         int size = 800;
         String fileType = "png";
@@ -34,12 +34,12 @@ public class GenerateQRCode {
         if (qrFile.exists()) {
             Files.delete(Path.of(filePath));
         }
-        // Create the ByteMatrix for the QR-Code that encodes the given String
+
         HashMap<EncodeHintType, ErrorCorrectionLevel> hintMap = new HashMap<>();
         hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
         QRCodeWriter qrCodeWriter = new QRCodeWriter();
         BitMatrix byteMatrix = qrCodeWriter.encode(token, BarcodeFormat.QR_CODE, size, size, hintMap);
-        // Make the BufferedImage that are to hold the QRCode
+
         int matrixWidth = byteMatrix.getWidth();
         BufferedImage image = new BufferedImage(matrixWidth, matrixWidth, BufferedImage.TYPE_INT_RGB);
         image.createGraphics();
@@ -47,7 +47,7 @@ public class GenerateQRCode {
         Graphics2D graphics = (Graphics2D) image.getGraphics();
         graphics.setColor(Color.WHITE);
         graphics.fillRect(0, 0, matrixWidth, matrixWidth);
-        // Paint and save the image using the ByteMatrix
+
         graphics.setColor(Color.BLACK);
 
         for (int i = 0; i < matrixWidth; i++) {

@@ -15,6 +15,7 @@ import xyz.msprpayetonkawa.apiwebshop.product.ProductController;
 import xyz.msprpayetonkawa.apiwebshop.product.ProductService;
 import xyz.msprpayetonkawa.apiwebshop.tools.SpringBeanMockUtil;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
@@ -45,6 +46,25 @@ public class ProductControllerTest {
         doReturn(new Product()).when(productServiceMock).getProduct("uid");
         Response response = given().when().pathParams("uid", "uid").get("/api/product/{uid}");
         response.then().statusCode(200);
+    }
+
+
+    @Test
+    public void testGetProductsByRetailerUid() {
+        ProductService productServiceMock = SpringBeanMockUtil.mockFieldOnBean(productController, ProductService.class);
+
+        Product product1 = new Product();
+        product1.setUid("product-uid-1");
+        Product product2 = new Product();
+        product2.setUid("product-uid-2");
+
+        List<Product> products = Arrays.asList(product1, product2);
+        doReturn(products).when(productServiceMock).getProductsByRetailer("retailer-uid-1");
+
+        Response response = given().when().get("/api/product/retailer/retailer-uid-1");
+
+        response.then()
+                .statusCode(200);
     }
 
 }

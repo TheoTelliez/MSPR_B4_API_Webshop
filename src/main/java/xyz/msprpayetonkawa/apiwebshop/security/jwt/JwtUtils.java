@@ -39,12 +39,7 @@ public class JwtUtils {
                 .parseClaimsJws(token).getBody().getSubject();
     }
 
-    public String getRoleFromJwtToken(String token) {
-        return Jwts.parserBuilder().setSigningKey(key()).build()
-                .parseClaimsJws(token).getBody().get("role", String.class);
-    }
-
-    private Key key() {
+    Key key() {
         StringBuilder reverse = new StringBuilder(jwtSecret).reverse();
         String jwtKey = jwtSecret + reverse + jwtSecret + reverse;
         return Keys.hmacShaKeyFor(Decoders.BASE64.decode(jwtKey));

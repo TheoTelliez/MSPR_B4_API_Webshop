@@ -7,6 +7,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 import xyz.msprpayetonkawa.apiwebshop.product.Product;
@@ -17,6 +18,7 @@ import xyz.msprpayetonkawa.apiwebshop.retailer.RetailerService;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -39,14 +41,15 @@ public class RetailerServiceTest {
 
     private final Retailer retailer1 = new Retailer(1L,"retailer-uid-key","Name","email@company.com","pass","Admin",ListProducts1);
 
-    private final Retailer retailer2 = new Retailer(2L,"other-retailer-uid-key","Other Name","email@othercompany.com","otherpass","Admin",ListProducts2);
+    @Mock
+    private PasswordEncoder passwordEncoder;
 
     @InjectMocks
     private RetailerService retailerService;
 
     @Before
     public void setUp(){
-
+        Mockito.when(passwordEncoder.encode(Mockito.anyString())).thenReturn("encodedDefaultPassword");
     }
 
     @Test
@@ -72,4 +75,24 @@ public class RetailerServiceTest {
         Optional<Retailer> result = retailerService.getRetailerByEmail(email);
         assertNull(result);
     }
+
+    @Test
+    public void testAddRetailer() {
+        Retailer newRetailer = new Retailer();
+        newRetailer.setName("New Retailer");
+        newRetailer.setEmail("newretailer@company.com");
+
+        Retailer savedRetailer = new Retailer();
+        savedRetailer.setUid(UUID.randomUUID().toString());
+        savedRetailer.setName("New Retailer");
+        savedRetailer.setEmail("newretailer@company.com");
+        savedRetailer.setRole("ROLE_RETAILER");
+
+        Mockito.when(retailerRepository.save(Mockito.any(Retailer.class))).thenReturn(savedRetailer);
+
+        Retailer result = retailerService.addRetailer(newRetailer);
+
+        assertEquals(savedRetailer, result);
+    }
+
 }
