@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import xyz.msprpayetonkawa.apiwebshop.retailer.RetailerService;
 
 import java.util.List;
 
@@ -20,9 +19,6 @@ public class ProductController {
 
     @Autowired
     private ProductService productService;
-
-    @Autowired
-    private RetailerService retailerService;
 
     @GetMapping()
     public ResponseEntity<List<Product>> getProducts() {

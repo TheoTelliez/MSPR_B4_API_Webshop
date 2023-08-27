@@ -13,7 +13,6 @@ import xyz.msprpayetonkawa.apiwebshop.client.Customer;
 import xyz.msprpayetonkawa.apiwebshop.client.CustomerRepository;
 import xyz.msprpayetonkawa.apiwebshop.product.Product;
 import xyz.msprpayetonkawa.apiwebshop.retailer.Retailer;
-import xyz.msprpayetonkawa.apiwebshop.retailer.RetailerRepository;
 import xyz.msprpayetonkawa.apiwebshop.security.services.UserDetailsImpl;
 import xyz.msprpayetonkawa.apiwebshop.security.services.UserDetailsServiceImpl;
 

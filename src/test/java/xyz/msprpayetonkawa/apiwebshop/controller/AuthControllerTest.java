@@ -23,8 +23,6 @@ import xyz.msprpayetonkawa.apiwebshop.WebSecurityConfig;
 import xyz.msprpayetonkawa.apiwebshop.client.Customer;
 import xyz.msprpayetonkawa.apiwebshop.client.CustomerRepository;
 import xyz.msprpayetonkawa.apiwebshop.qrcode.GenerateQRCode;
-import xyz.msprpayetonkawa.apiwebshop.retailer.Retailer;
-import xyz.msprpayetonkawa.apiwebshop.retailer.RetailerRepository;
 import xyz.msprpayetonkawa.apiwebshop.security.AuthController;
 import xyz.msprpayetonkawa.apiwebshop.security.jwt.JwtUtils;
 import xyz.msprpayetonkawa.apiwebshop.security.payload.request.LoginRequest;
@@ -106,6 +104,8 @@ public class AuthControllerTest {
         signUpRequest.setEmail("test@example.com");
         signUpRequest.setLastName("Test lastname");
         signUpRequest.setFirstName("Test firstname");
+        signUpRequest.setCompany("Test Company");
+        signUpRequest.setProspect(true);
 
         Mockito.when(customerRepository.findByEmail(signUpRequest.getEmail())).thenReturn(Optional.empty());
 

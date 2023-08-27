@@ -76,6 +76,7 @@ public class AuthController {
         customer.setPrenom(signUpRequest.getFirstName());
         customer.setEmail(signUpRequest.getEmail());
         customer.setPassword(encoder.encode(defaultPassword));
+        customer.setCompany(signUpRequest.getCompany());
         customer.setRole("ROLE_CUSTOMER");
         customerRepository.save(customer);
 

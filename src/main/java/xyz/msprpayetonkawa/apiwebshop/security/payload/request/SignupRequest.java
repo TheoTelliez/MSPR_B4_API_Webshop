@@ -16,6 +16,6 @@ public class SignupRequest {
     private String lastName;
     private String firstName;
     private String company;
-    private String prospect;
+    private boolean prospect;
 
 }
